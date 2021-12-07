@@ -70,7 +70,7 @@ def seriesTransform(tsData,transformationSwitches):
 
 startDate = dt(2000,1,1) 
 endDate_T = dt(2015,12,31)
-endDate_N = dt(2021,5,31) 
+endDate_N = dt(2021,12,01) 
 dataPeriod = 'MONTHLY'
 commitmentLevel = 20
 
