@@ -160,12 +160,11 @@ print('Finished Acquisition and Cleaning')
 #Parameters
 
 tTimes = 10*commitmentLevel
-hiddenLayerSize = 20
 inputs = sRIAll.iloc[1:lastDateofShadowIndex+1,:]
 targets = sRTAll.iloc[1:,1]
 
 num_cores = multiprocessing.cpu_count()
-results1 = (Parallel(n_jobs=num_cores, verbose=50)(delayed(fitnetFunction)(inputs, targets, sRIAll.iloc[1:,:],20)for i in range(tTimes)))
+results1 = (Parallel(n_jobs=num_cores, verbose=50)(delayed(fitnetFunction)(inputs, targets, sRIAll.iloc[1:,:])for i in range(tTimes)))
 #BLIP AT 242
 
 # plot initial ANN
@@ -228,12 +227,11 @@ sRScore = pd.DataFrame(data=principalComponents1).reset_index(drop=True)
 #Parameters
 
 tTimesP = 10*commitmentLevel
-hiddenLayerSizeP = 20
 inputsP = sRScore.iloc[1:lastDateofShadowIndexMajor+1,0:nPCs]
 targetsP = sRTAll.iloc[1:,1]
 
 num_cores = multiprocessing.cpu_count()
-results3 = (Parallel(n_jobs=num_cores, verbose=50)(delayed(fitnetFunction)(inputsP, targetsP, sRScore.iloc[:,0:nPCs],15)for i in range(tTimes)))
+results3 = (Parallel(n_jobs=num_cores, verbose=50)(delayed(fitnetFunction)(inputsP, targetsP, sRScore.iloc[:,0:nPCs])for i in range(tTimes)))
         
 # plot All Input PCA ANN
 
